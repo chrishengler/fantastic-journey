@@ -56,7 +56,31 @@ public class FellowTravellersTest{
   @After
   public void tearDown(){
   }
-
+  
+ /**
+  * Test of readAPIkey method
+  */
+  @Test
+  public void testReadAPIkey(){
+    System.out.println("readAPIkey");
+    FellowTravellers instance = new FellowTravellers();
+    try{
+      instance.readAPIkey("nofilehere.txt");
+      fail("FellowTravellers.readAPIkey() should throw exception on empty file");
+    }
+    catch(Exception e){
+      System.out.println(e.toString());
+    }
+    try{
+      instance.readAPIkey("example_apiks.txt");
+    }
+    catch(Exception e){
+      System.out.println(e.toString());
+    }
+    assertEquals("obviouslyinvalidapikey",instance.getAPIkey());
+    assertEquals("obviouslyinvalidsecret",instance.getSecret());
+  }
+  
   /**
    * Test of getAPIauth method, of class FellowTravellers.
    */
@@ -64,9 +88,16 @@ public class FellowTravellersTest{
   public void testGetAPIauth(){
     System.out.println("getAPIauth");
     FellowTravellers instance = new FellowTravellers();
+    try{
+      instance.readAPIkey("apiks.txt");
+    }
+    catch(Exception e){
+      System.out.println(e.toString());
+    }
     instance.getAPIauth();
-    // TODO review the generated test code and remove the default call to fail.
     assertNotEquals(null,instance.getToken());
   }
+  
+
 
 }

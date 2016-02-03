@@ -28,6 +28,11 @@ package fantastic.journey;
 import de.umass.lastfm.Authenticator;
 import de.umass.lastfm.Caller;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author chris
@@ -35,18 +40,48 @@ import de.umass.lastfm.Caller;
 public class FellowTravellers{
 
   private String apikey;
+  private String secret;
   private String token;
 
   FellowTravellers(){
     
   }
 
+  public void getAPIauth(){
+    token = Authenticator.getToken(apikey);
+  }
+  
+  public String getAPIkey(){
+    return apikey;
+  }
+  
+  public String getSecret(){
+    return secret;
+  }
+  
   public String getToken(){
     return token;
   }
   
-  public void getAPIauth(){
-    token = Authenticator.getToken(apikey);
+  /**
+   * read API key file
+   * 
+   * actually reads API key and secret
+   * 
+   * @param filename
+   * @throws FileNotFoundException 
+   */
+  public void readAPIkey(String filename) throws FileNotFoundException, IOException{
+    try{
+      FileReader fr = new FileReader(filename);
+      BufferedReader br = new BufferedReader(fr);
+      apikey = br.readLine();
+      secret = br.readLine();
+    }
+    catch(Exception e){
+      System.out.println("could not read API key file");
+      throw e;
+    }
   }
   
   public void setToken(String newToken){
