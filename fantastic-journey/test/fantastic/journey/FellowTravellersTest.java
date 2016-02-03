@@ -36,35 +36,38 @@ import static org.junit.Assert.*;
  *
  * @author chris
  */
-public class FellowTravellersTest {
-    
-    public FellowTravellersTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
+public class FellowTravellersTest{
 
-    @Test
-    /**
-     * test creation of FellowTravellers object
-     */
-    public void FellowTravellersShouldBeCreated() {
-        // TODO review the generated test code and remove the default call to fail.
-        FellowTravellers f = new FellowTravellers();
-        
-    }
-    
+  public FellowTravellersTest(){
+  }
+
+  @BeforeClass
+  public static void setUpClass(){
+  }
+
+  @AfterClass
+  public static void tearDownClass(){
+  }
+
+  @Before
+  public void setUp(){
+  }
+
+  @After
+  public void tearDown(){
+  }
+
+  @Test
+  /**
+   * test creation of FellowTravellers object
+   */
+  public void FellowTravellersShouldBeCreated(){
+    // TODO review the generated test code and remove the default call to fail.
+    FellowTravellers f = new FellowTravellers();
+  }
+
+  public void FellowTravellersCanGetAPIAuth(){
+
+  }
+
 }

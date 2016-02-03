@@ -31,12 +31,12 @@ import de.umass.lastfm.Caller;
  *
  * @author chris
  */
-public class FellowTravellers {
-    
-    Caller c;
-    
-    FellowTravellers(){
-        c = Caller.getInstance();
-    }
-    
+public class FellowTravellers{
+
+  Caller c;
+
+  FellowTravellers(){
+    c = Caller.getInstance();
+  }
+
 }
