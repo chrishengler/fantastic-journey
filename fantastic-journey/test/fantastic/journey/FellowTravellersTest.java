@@ -96,6 +96,7 @@ public class FellowTravellersTest{
     }
     instance.getAPIauth();
     assertNotEquals(null,instance.getToken());
+    System.out.println("token:"+instance.getToken());
   }
   
 
