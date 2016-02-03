@@ -25,13 +25,18 @@
  */
 package fantastic.journey;
 
-import de.umass.lastfm.Authenticator;
-import de.umass.lastfm.Caller;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
+import java.util.Collection;
+
+import de.umass.lastfm.Authenticator;
+import de.umass.lastfm.Caller;
+import de.umass.lastfm.Event;
+import de.umass.lastfm.PaginatedResult;
+import de.umass.lastfm.User;
 
 /**
  *
@@ -44,7 +49,7 @@ public class FellowTravellers{
   private String token;
 
   FellowTravellers(){
-    
+    Caller.getInstance().setUserAgent("gigBuddies");
   }
 
   public void getAPIauth(){
@@ -87,5 +92,15 @@ public class FellowTravellers{
     }
   }
   
-  
+  public Collection<Event> getEvents(String user){
+    PaginatedResult<Event> pr = User.getEvents(user,apikey); 
+    Collection<Event> events = pr.getPageResults();
+    int numpages = pr.getTotalPages();
+    for(int ii=2;ii<=numpages;++ii){
+      pr = User.getEvents(user,ii,apikey);
+      events.addAll(pr.getPageResults());
+    }
+    return events;
+  }
+              
 }

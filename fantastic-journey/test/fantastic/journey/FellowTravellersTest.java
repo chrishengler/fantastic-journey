@@ -25,12 +25,17 @@
  */
 package fantastic.journey;
 
+import java.util.Collection;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import de.umass.lastfm.Event;
+
 
 /**
  *
@@ -106,6 +111,23 @@ public class FellowTravellersTest{
     System.out.println("token:"+instance.getToken());
   }
   
+  /**
+   * Test of getEvents method
+   */
+  @Test
+  public void testGetEvents(){
+    System.out.println("getEventList");
+    FellowTravellers instance = new FellowTravellers();
+    try{
+      instance.readAPIkey("apiks.txt");
+    }
+    catch(Exception e){
+      System.out.println(e.toString());
+    }
+    instance.getAPIauth();
+    Collection<Event> events = instance.getEvents("DFA1979");
+    assertNotEquals(events.size() ,0);
+  }
 
 
 }
