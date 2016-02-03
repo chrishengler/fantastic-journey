@@ -58,9 +58,13 @@ public class FellowTravellersTest {
     }
 
     @Test
-    public void testSomeMethod() {
+    /**
+     * test creation of FellowTravellers object
+     */
+    public void FellowTravellersShouldBeCreated() {
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        FellowTravellers f = new FellowTravellers();
+        
     }
     
 }
