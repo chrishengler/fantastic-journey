@@ -87,8 +87,5 @@ public class FellowTravellers{
     }
   }
   
-  public void setToken(String newToken){
-    token = newToken;
-  }
   
 }
