@@ -25,6 +25,7 @@
  */
 package fantastic.journey;
 
+import de.umass.lastfm.Authenticator;
 import de.umass.lastfm.Caller;
 
 /**
@@ -33,10 +34,23 @@ import de.umass.lastfm.Caller;
  */
 public class FellowTravellers{
 
-  Caller c;
+  private String apikey;
+  private String token;
 
   FellowTravellers(){
-    c = Caller.getInstance();
+    
   }
 
+  public String getToken(){
+    return token;
+  }
+  
+  public void getAPIauth(){
+    token = Authenticator.getToken(apikey);
+  }
+  
+  public void setToken(String newToken){
+    token = newToken;
+  }
+  
 }

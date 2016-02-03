@@ -57,17 +57,16 @@ public class FellowTravellersTest{
   public void tearDown(){
   }
 
-  @Test
   /**
-   * test creation of FellowTravellers object
+   * Test of getAPIauth method, of class FellowTravellers.
    */
-  public void FellowTravellersShouldBeCreated(){
+  @Test
+  public void testGetAPIauth(){
+    System.out.println("getAPIauth");
+    FellowTravellers instance = new FellowTravellers();
+    instance.getAPIauth();
     // TODO review the generated test code and remove the default call to fail.
-    FellowTravellers f = new FellowTravellers();
-  }
-
-  public void FellowTravellersCanGetAPIAuth(){
-
+    assertNotEquals(null,instance.getToken());
   }
 
 }
