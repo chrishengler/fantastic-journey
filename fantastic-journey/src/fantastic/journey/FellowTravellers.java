@@ -77,6 +77,9 @@ public class FellowTravellers{
       BufferedReader br = new BufferedReader(fr);
       apikey = br.readLine();
       secret = br.readLine();
+      if(apikey==null || secret==null){
+        throw new IOException("Improper API key/secret input file");
+      }
     }
     catch(Exception e){
       System.out.println("could not read API key file");

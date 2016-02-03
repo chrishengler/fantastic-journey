@@ -72,6 +72,13 @@ public class FellowTravellersTest{
       System.out.println(e.toString());
     }
     try{
+      instance.readAPIkey("onlyoneline.txt");
+      fail("FellowTravellers.readAPIkey() should throw for 1 line file");
+    }
+    catch(Exception e){
+      System.out.println(e.toString());
+    }
+    try{
       instance.readAPIkey("example_apiks.txt");
     }
     catch(Exception e){
